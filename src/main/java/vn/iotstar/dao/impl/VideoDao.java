@@ -1,7 +1,9 @@
 package vn.iotstar.dao.impl;
 
 import java.util.List;
-import jakarta.persistence.*;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import vn.iotstar.configs.JPAConfigs;
 import vn.iotstar.dao.IVideoDao;
 import vn.iotstar.entity.Video;
@@ -95,4 +97,6 @@ public class VideoDao implements IVideoDao {
                      .getResultList();
         } finally { em.close(); }
     }
+    
+
 }

@@ -96,6 +96,19 @@ public class VideoController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = req.getRequestURI();
         if (url.contains("videos")) {
+            String keyword = req.getParameter("keyword");
+            List<Video> list;
+            if (keyword != null && !keyword.trim().isEmpty()) {
+                list = videoService.findByTitle(keyword);
+            } else {
+                list = videoService.findAll();
+            }
+            req.setAttribute("listvideo", list);
+            req.setAttribute("keyword", keyword);
+            req.getRequestDispatcher("/views/admin/video-list.jsp").forward(req, resp);
+        }
+
+        if (url.contains("videos")) {
             List<Video> list = videoService.findAll();
             req.setAttribute("listvideo", list);
             req.getRequestDispatcher("/views/admin/video-list.jsp").forward(req, resp);

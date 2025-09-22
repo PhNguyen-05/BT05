@@ -2,6 +2,13 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <h2>Video Management</h2>
+
+<form action="${pageContext.request.contextPath}/admin/videos" method="get">
+    <input type="text" name="keyword" placeholder="Search by title" 
+           value="${keyword != null ? keyword : ''}"/>
+    <input type="submit" value="Search"/>
+</form>
+
 <a href="<c:url value='/admin/video/add'/>">Add video</a>
 
 <table border="1">
