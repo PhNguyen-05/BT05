@@ -74,7 +74,7 @@ public class CategoryController extends HttpServlet {
                 req.getRequestDispatcher("/views/admin/category-list.jsp").forward(req, resp);
                 return;
             }
-            resp.sendRedirect(req.getContextPath() + "/admin/categories");
+            resp.sendRedirect(req.getContextPath() + "/admin/home");
         }
     }
 
@@ -111,7 +111,7 @@ public class CategoryController extends HttpServlet {
                 }
 
                 cateService.insert(category);
-                resp.sendRedirect(req.getContextPath() + "/admin/categories");
+                resp.sendRedirect(req.getContextPath() + "/admin/home");
 
             } else if (url.contains("update")) {
                 // Xử lý cập nhật
@@ -139,7 +139,7 @@ public class CategoryController extends HttpServlet {
                 }
 
                 cateService.update(category);
-                resp.sendRedirect(req.getContextPath() + "/admin/categories");
+                resp.sendRedirect(req.getContextPath() + "/admin/home");
             }
 
         } catch (Exception e) {

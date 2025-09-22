@@ -122,7 +122,7 @@ public class VideoController extends HttpServlet {
         } else if (url.contains("/admin/video/delete")) {
             String id = req.getParameter("id");
             try { videoService.delete(id); } catch (Exception e) { req.setAttribute("error", e.getMessage()); }
-            resp.sendRedirect(req.getContextPath() + "/admin/videos");
+            resp.sendRedirect(req.getContextPath() + "/admin/home");
         }
     }
 
@@ -160,7 +160,7 @@ public class VideoController extends HttpServlet {
             }
 
             videoService.update(v);
-            resp.sendRedirect(req.getContextPath() + "/admin/videos");
+            resp.sendRedirect(req.getContextPath() + "/admin/home");
 
         } else if (url.contains("/admin/video/insert")) {
             Video v = new Video();
@@ -189,7 +189,7 @@ public class VideoController extends HttpServlet {
             }
 
             videoService.insert(v);
-            resp.sendRedirect(req.getContextPath() + "/admin/videos");
+            resp.sendRedirect(req.getContextPath() + "/admin/home");
         }
     }
 }
